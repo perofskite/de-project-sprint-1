@@ -1,0 +1,7 @@
+create table analysis.dm_rfm_segments 
+ (
+ user_id INT NOT NULL PRIMARY KEY,
+ recency INT NOT NULL CHECK(monetary_value >= 1 AND monetary_value <= 5),
+ frequency INT NOT NULL CHECK(monetary_value >= 1 AND monetary_value <= 5),
+ monetary_value INT NOT NULL CHECK(monetary_value >= 1 AND monetary_value <= 5)
+)
