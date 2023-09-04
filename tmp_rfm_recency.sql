@@ -6,5 +6,5 @@ left join analysis.orderstatuses o2 on o.status = o2.id
 where order_ts >= '2022-01-01'
 group by o.user_id)
 select 
-user_id, NTILE(5) over (order by last_order::timestamp desc) as recency
+user_id, NTILE(5) over (order by last_order::timestamp nulls first) as recency
 from tab1
